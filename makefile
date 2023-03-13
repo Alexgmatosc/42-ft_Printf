@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-SOURCES = ft_printf.c
+SOURCES = ft_printf.c ft_putnbr_unsigned_fd.c
 
 HEADERS = ft_printf.h
 

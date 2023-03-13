@@ -21,25 +21,30 @@ int	ft_printf(const char *format, ...)
 	i = 0;
 	counter = ft_strlen(format);
 	va_start(args, format);
-	while (format[i])
+	while (format[i]) // while the string exists
 	{
-		if (format[i] == '%' )
+		if (format[i] == '%' ) // if the character is a % then we check the format argument
 		{
-			i++;
-			if (format[i] == 'c' )
+			i++; // we move to the next character bc we already know that the current one is a %
+			if (format[i] == 'c' ) // if the next character is a c then we print the next argument as a char
 			{
 				i++;
 				ft_putchar_fd(va_arg(args, int), 1);
 			}
-			else if(format[i] == 's')
+			else if(format[i] == 's') // if the next character is a s then we print the next argument as a string
 			{
 				i++;
 				ft_putstr_fd(va_arg(args, char *), 1);
 			}
-			else if(format[i] == 'd')
+			else if(format[i] == 'i') // if the next character is a d then we print the next argument as a int
 			{
 				i++;
 				ft_putnbr_fd(va_arg(args, int), 1);
+			}
+			else if (format[i] == 'u') // if the next character is a u then we print the next argument as a unsigned int
+			{
+				i++;
+				ft_putnbr_unsigned_fd(va_arg(args, unsigned int), 1);
 			}
 		}
 		else
@@ -49,27 +54,4 @@ int	ft_printf(const char *format, ...)
 		}
 	}
 	return(counter);
-}
-
-int main()
-{
-	int counter;
-	char *str = "Hello world";
-	char c = 'a';
-	int i = 42;
-	ft_printf("El caracter es: %c\n", c);
-	ft_printf("El string es: %s\n", str);
-	ft_printf("El entero es: %d\n", i);
-	counter = ft_printf("123456789\n");
-	ft_printf("La funcion devuelve: %d\n", counter);
-
-	printf("El caracter es: %c\n", c);
-	printf("El string es: %s\n", str);
-	printf("El entero es: %d\n", i);
-	counter = ft_printf("123456789\n");
-	printf("La funcion devuelve: %d\n ", counter);
-
-
-
-	return (0);
 }

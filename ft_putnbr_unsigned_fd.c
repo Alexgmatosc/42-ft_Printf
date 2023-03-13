@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alematos <alematos@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 19:13:12 by alematos          #+#    #+#             */
-/*   Updated: 2023/03/11 19:13:12 by alematos         ###   ########.fr       */
+/*   Created: 2023/02/08 13:04:28 by alematos          #+#    #+#             */
+/*   Updated: 2023/02/08 13:04:28 by alematos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include "../libft/libft.h"
-
-int		ft_printf(const char *format, ...);
-void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
-
-#endif
+void	ft_putnbr_unsigned_fd(unsigned int n, int fd)
+{
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd(n % 10 + '0', fd);
+}
