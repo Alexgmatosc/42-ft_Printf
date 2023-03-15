@@ -16,42 +16,47 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	size_t	i;
-	int	counter;
+	size_t	total_size;
 
 	i = 0;
-	counter = ft_strlen(format);
+	total_size = 0;
 	va_start(args, format);
-	while (format[i]) // while the string exists
+	while (format[i])
 	{
-		if (format[i] == '%' ) // if the character is a % then we check the format argument
+		if (format[i] == '%')
 		{
-			i++; // we move to the next character bc we already know that the current one is a %
-			if (format[i] == 'c' ) // if the next character is a c then we print the next argument as a char
+			i++;
+			if (format[i] == 'c')
 			{
 				i++;
-				ft_putchar_fd(va_arg(args, int), 1);
+				ft_putchar_count(va_arg(args, int), 1, &total_size);
 			}
-			else if(format[i] == 's') // if the next character is a s then we print the next argument as a string
+			else if (format[i] == 's')
 			{
 				i++;
-				ft_putstr_fd(va_arg(args, char *), 1);
+				ft_putstr_count(va_arg(args, char *), 1, &total_size);
 			}
-			else if(format[i] == 'i') // if the next character is a d then we print the next argument as a int
+			else if (format[i] == 'i' || format[i] == 'd' )
 			{
 				i++;
-				ft_putnbr_fd(va_arg(args, int), 1);
+				ft_putnbr_count(va_arg(args, int), 1, &total_size);
 			}
-			else if (format[i] == 'u') // if the next character is a u then we print the next argument as a unsigned int
+			else if (format[i] == 'u')
 			{
 				i++;
-				ft_putnbr_unsigned_fd(va_arg(args, unsigned int), 1);
+				ft_putnbr_unsigned_count (va_arg(args, unsigned int), 1, &total_size);
+			}
+			else if (format[i] == '%')
+			{
+				i++;
+				ft_putchar_count('%',1, &total_size);
 			}
 		}
 		else
 		{
-			ft_putchar_fd(format[i], 1);
+			ft_putchar_count(format[i], 1, &total_size);
 			i++;
 		}
 	}
-	return(counter);
+	return(total_size);
 }

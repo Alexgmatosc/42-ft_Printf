@@ -16,9 +16,17 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "../libft/libft.h"
+# include <stdio.h>
+# include <limits.h>
+# include <string.h>
+# include <ctype.h>
+//# include "../libft/libft.h"
 
 int		ft_printf(const char *format, ...);
-void	ft_putnbr_unsigned_fd(unsigned int n, int fd);
+void	ft_putnbr_unsigned_count(unsigned int n, int fd, size_t *size);
+void	ft_putnbr_count(int n, int fd, size_t *size);
+void	ft_putchar_count(char c, int fd, size_t *size);
+void	ft_putstr_count(char *s, int fd, size_t *size);
+void	ft_countchar(size_t *size);
 
 #endif
