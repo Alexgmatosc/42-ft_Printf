@@ -12,8 +12,8 @@
 
 #include "ft_printf.h"
 
-void	ft_putchar_count(char c, int fd, size_t *size)
+void	ft_putchar_count(char c, size_t *size)
 {
-	write(fd, &c, 1);
+	write(1, &c, 1);
 	ft_countchar(size);
 }

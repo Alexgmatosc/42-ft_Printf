@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_count.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alematos <alematos@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 20:23:53 by alematos          #+#    #+#             */
-/*   Updated: 2023/03/15 20:55:16 by alematos         ###   ########.fr       */
+/*   Created: 2022/11/08 14:40:32 by alematos          #+#    #+#             */
+/*   Updated: 2023/03/22 00:01:56 by alematos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_puthex_count(unsigned char hex, int fd, size_t *size)
+size_t	ft_strlen(const char *str)
 {
-	if (hex >= 16)
-		ft_puthex_count(hex / 16, fd, size);
-	if (hex % 16 < 10)
-		ft_putchar_count(hex % 16 + '0', fd, size);
-	else
-		ft_putchar_count(hex % 16 + 'a' - 10, fd, size);
-	size++; 
+	size_t i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

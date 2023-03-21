@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-void	ft_putnbr_unsigned_count(unsigned int n, int fd, size_t *size)
+void	ft_putnbr_unsigned_count(unsigned int n, size_t *size)
 {
 	if (n >= 10)
-		ft_putnbr_unsigned_count(n / 10, fd, size);
-	ft_putchar_count(n % 10 + '0', fd, size);
+		ft_putnbr_unsigned_count(n / 10, size);
+	ft_putchar_count(n % 10 + '0', size);
 }

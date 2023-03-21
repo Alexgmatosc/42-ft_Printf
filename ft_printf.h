@@ -20,13 +20,14 @@
 # include <limits.h>
 # include <string.h>
 # include <ctype.h>
-//# include "../libft/libft.h"
 
 int		ft_printf(const char *format, ...);
-void	ft_putnbr_unsigned_count(unsigned int n, int fd, size_t *size);
-void	ft_putnbr_count(int n, int fd, size_t *size);
-void	ft_putchar_count(char c, int fd, size_t *size);
-void	ft_putstr_count(char *s, int fd, size_t *size);
+void	ft_putnbr_unsigned_count(unsigned int n, size_t *size);
+void	ft_putnbr_count(int n, size_t *size);
+void	ft_putnbr_base_count(long long nbr, char *base, size_t *size);
+void	ft_putchar_count(char c, size_t *size);
+void	ft_putstr_count(char *s, size_t *size);
 void	ft_countchar(size_t *size);
+size_t		ft_strlen(const char *str);
 
 #endif
