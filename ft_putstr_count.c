@@ -17,9 +17,14 @@ void	ft_putstr_count(char *s, size_t *size)
 	int	i;
 
 	i = 0;
-	while (s[i])
+	if (!s)
+		ft_putstr_count("(null)", size);
+	else
 	{
-		ft_putchar_count(s[i], size);
-		i++;
+		while (s[i])
+		{
+			ft_putchar_count(s[i], size);
+			i++;
+		}
 	}
 }
