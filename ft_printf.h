@@ -25,6 +25,8 @@ int			ft_printf(const char *format, ...);
 void		ft_putnbr_unsigned_count(unsigned int n, size_t *size);
 void		ft_putnbr_count(int n, size_t *size);
 void		ft_putnbr_base(long long nbr, char *base, size_t *size);
+void		ft_putnbr_void(unsigned long int nbr, char *base, size_t *size);
+void		ft_putnbr_x(unsigned int nbr, char *base, size_t *size);
 void		ft_putchar_count(char c, size_t *size);
 void		ft_putstr_count(char *s, size_t *size);
 void		ft_countchar(size_t *size);
