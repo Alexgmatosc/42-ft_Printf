@@ -23,17 +23,17 @@ CC = @gcc
 CFLAGS = -Wall -Wextra -Werror
 
 $(NAME): $(OBJECTS) $(HEADERS)
-	@echo "\033[1;3;33mCreando la libreria...\033[0m"
+	@echo "\033[1;3;33mCreating library...\033[0m"
 	@ar -rcs $@ $^
-	@echo "\033[1;7;32mLibreria creada con exito:\n\033[0m" $(NAME)
+	@echo "\033[1;7;32mLibrary successfully created:\n\033[0m" $(NAME)
 
 fclean:
-	@echo "\033[1;3;31mEliminando:\n\033[0m$(NAME)"
-	@echo "\033[1;7;31mLibreria eliminada con exito\033[0m"
+	@echo "\033[1;3;31mDeleting:\n\033[0m$(NAME)"
+	@echo "\033[1;7;31mLibrary successfully deleted\033[0m"
 	@rm -f $(OBJECTS) $(NAME)
 clean:
-	@echo "\033[1;3;31mEliminando:\n\033[0m$(OBJECTS)"
-	@echo "\033[1;7;31mObjetos eliminados con exito\033[0m"
+	@echo "\033[1;3;31mDeleting:\n\033[0m$(OBJECTS)"
+	@echo "\033[1;7;31mObjects successfully deleted\033[0m"
 	@rm -f $(OBJECTS)
 
 all:$(NAME)
