@@ -1,4 +1,16 @@
-#include"ft_printf.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_void.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: alematos <alematos@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/07 11:30:13 by alematos          #+#    #+#             */
+/*   Updated: 2024/03/07 11:30:16 by alematos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
 
 void	ft_putnbr_void(unsigned long int nbr, char *base, size_t *size)
 {
